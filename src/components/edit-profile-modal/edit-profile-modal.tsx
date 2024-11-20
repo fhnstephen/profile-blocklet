@@ -5,18 +5,30 @@ import { Profile } from '../../types/profile';
 
 type EditProfileModalProps = {
   open: boolean; // Controls whether the modal is open
-  onCancel?: () => void; // Callback function for the cancel action
-  onSubmit: (profile: { name: string; email: string; phone: string }) => void; // Callback function for the submit action
+  onCancel?: () => void | Promise<void>; // Callback function for the cancel action
+  onSubmit: (newProfile: Profile) => void | Promise<void>; // Callback function for the submit action
   currentProfile: Profile; // Current profile data to pre-fill the form
 };
 
 function EditProfileModal({ open, onCancel, onSubmit, currentProfile }: EditProfileModalProps): JSX.Element {
   const [form] = Form.useForm(); // Ant Design form instance
   const [isFormValid, setFormValid] = useState(false); // State to track form validity
+  // Watch all values
+  const values = Form.useWatch([], form);
+
+  useEffect(() => {
+    form
+      .validateFields({ validateOnly: true })
+      .then(() => setFormValid(true))
+      .catch(() => setFormValid(false));
+  }, [form, values]);
 
   // Handles the cancel button action
-  const handleCancel = useCallback(() => {
-    onCancel?.(); // Call the parent-provided cancel callback if exists
+  const handleCancel = useCallback(async () => {
+    const result = onCancel?.(); // Call the parent-provided cancel callback if exists
+    if (result instanceof Promise) {
+      await result; // Wait for the promise to resolve if it exists
+    }
     form.resetFields(); // Reset form fields for the next open
   }, [form, onCancel]);
 
@@ -24,30 +36,16 @@ function EditProfileModal({ open, onCancel, onSubmit, currentProfile }: EditProf
   const handleSubmit = useCallback(async () => {
     try {
       // Validate form fields
-      const values = await form.validateFields();
-      onSubmit(values); // Pass the form values to the parent-provided submit callback
+      await form.validateFields();
+      const result = onSubmit(values); // Pass the form values to the parent-provided submit callback
+      if (result instanceof Promise) {
+        await result; // Wait for the promise to resolve if it exists
+      }
       form.resetFields(); // Reset form fields after successful submission
     } catch (errorInfo) {
       message.error('Please make sure all fields are correct'); // Display error message if form validation fails
     }
-  }, [form, onSubmit]);
-
-  // Tracks form validity whenever values change
-  const handleFormChange = useCallback(async () => {
-    try {
-      await form.validateFields(); // Validate fields
-      setFormValid(true); // Form is valid
-    } catch {
-      setFormValid(false); // Form is invalid
-    }
-  }, [form]);
-
-  useEffect(() => {
-    // set the initial form validity when the modal is opened
-    if (open) {
-      handleFormChange();
-    }
-  }, [handleFormChange, open]);
+  }, [form, onSubmit, values]);
 
   return (
     <Modal
@@ -62,7 +60,7 @@ function EditProfileModal({ open, onCancel, onSubmit, currentProfile }: EditProf
           Submit
         </Button>,
       ]}>
-      <Form form={form} layout="vertical" initialValues={currentProfile} onValuesChange={handleFormChange}>
+      <Form form={form} layout="vertical" initialValues={{ ...currentProfile }}>
         {/* Name field */}
         <Form.Item
           name="name"

@@ -11,4 +11,9 @@ export async function getProfile(): Promise<Profile> {
   return data;
 }
 
+export async function updateProfile(profile: Profile): Promise<Profile> {
+  const { data } = await api.patch('/api/profile', profile);
+  return data;
+}
+
 export default api;
