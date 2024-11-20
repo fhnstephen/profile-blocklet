@@ -44,6 +44,7 @@
     "@ocap/client": "^1.18.139",
     "@ocap/mcrypto": "^1.18.139",
     "@ocap/wallet": "^1.18.139",
+    "antd": "^5.22.2",
     "axios": "^1.7.7",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",

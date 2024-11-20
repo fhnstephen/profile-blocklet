@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import Home from './pages/home';
 
@@ -14,7 +14,7 @@ function App() {
 }
 
 export default function WrappedApp() {
-  // While the blocklet is deploy to a sub path, this will be work properly.
+  // When the blocklet is deploy to a sub path, this will work properly.
   const basename = window?.blocklet?.prefix || '/';
 
   return (
