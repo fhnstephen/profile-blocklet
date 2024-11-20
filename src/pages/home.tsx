@@ -40,9 +40,9 @@ function Home() {
   const handleEditSubmit = useCallback(
     async (newProfile: Profile) => {
       try {
-        await updateProfile(newProfile);
+        const updatedProfile = await updateProfile(newProfile);
         // optimistic update
-        setProfile(newProfile);
+        setProfile(updatedProfile);
         message.success('Profile updated successfully');
         setIsEditing(false);
         // fetch updated data
