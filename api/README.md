@@ -1,6 +1,6 @@
 # Express API server
 
-This is a simple express server that serves as a backend for the blocklet, utilizing SQLite as the database.
+This is a simple express server that serves as a backend for the blocklet, utilizing SQLite as the database with `sequelize-typescript`.
 
 ## APIs
 
