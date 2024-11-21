@@ -9,7 +9,7 @@ import { Profile } from '../types/profile';
 import './home.css';
 
 function Home() {
-  const { data: profile, isLoading, error, updateProfile } = useProfile();
+  const { data: profile, isLoading, error, updateProfile, createProfile } = useProfile();
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEdit = useCallback(() => {
@@ -44,10 +44,9 @@ function Home() {
     return <p>Error: {error.message}, please refresh the page to try again or contact the Administrator.</p>;
   }
 
-  // if (!profile) {
-  if (true) {
+  if (!profile) {
     // profile is not ready, render welcome component for profile creation
-    return <Welcome onCreateProfile={() => {}} />;
+    return <Welcome onCreateProfile={createProfile} />;
   }
 
   // profile is ready, render profile and edit button

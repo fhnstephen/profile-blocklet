@@ -1,13 +1,14 @@
-import { Card, Typography } from 'antd';
+import { Typography } from 'antd';
 
 import { Profile as ProfileType } from '../../types/profile';
+import ProfileCard from '../profile-card/profile-card';
 
 type ProfileProps = {
   profile: ProfileType;
   title?: string;
 };
 
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 export function Profile(props: ProfileProps): JSX.Element {
   const {
@@ -16,11 +17,7 @@ export function Profile(props: ProfileProps): JSX.Element {
   } = props;
 
   return (
-    <Card
-      style={{ width: 400, margin: '0 auto', borderRadius: 8 }}
-      bordered
-      hoverable
-      title={<Title level={4}>{title}</Title>}>
+    <ProfileCard title={title}>
       <div style={{ textAlign: 'center', padding: '16px 0' }}>
         <Text>
           <strong>Name:</strong> {name}
@@ -34,7 +31,7 @@ export function Profile(props: ProfileProps): JSX.Element {
           <strong>Phone:</strong> {phone}
         </Text>
       </div>
-    </Card>
+    </ProfileCard>
   );
 }
 

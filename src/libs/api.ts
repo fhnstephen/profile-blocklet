@@ -16,4 +16,9 @@ export async function updateProfile(profile: Profile): Promise<Profile> {
   return data;
 }
 
+export async function createProfile(profile: Profile): Promise<Profile> {
+  const { data } = await api.post('/v1/api/profile', profile);
+  return data;
+}
+
 export default api;

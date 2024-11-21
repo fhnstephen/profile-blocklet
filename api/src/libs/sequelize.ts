@@ -2,7 +2,8 @@ import path from 'path';
 import { Sequelize } from 'sequelize-typescript';
 
 // Path to SQLite file
-export const dbPath = path.resolve(__dirname, '../../../db/database.sqlite');
+const defaultDbPath = path.resolve(__dirname, '../../data/db.sqlite');
+export const dbPath = process.env.DB_PATH || defaultDbPath;
 
 // Initialize SQLite database
 export const sequelize = new Sequelize({
