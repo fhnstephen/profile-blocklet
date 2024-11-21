@@ -1,5 +1,5 @@
 import { Button, Modal, message } from 'antd';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 import { Profile } from '../../types/profile';
 import ProfileForm from '../profile-form/profile-form';
@@ -12,6 +12,7 @@ type EditProfileModalProps = {
 };
 
 function EditProfileModal({ open, onCancel, onSubmit, currentProfile }: EditProfileModalProps): JSX.Element {
+  const [submitting, setSubmitting] = useState(false); // Loading state for the submit button
   // Handles the cancel button action
   const handleCancel = useCallback(async () => {
     await onCancel?.(); // Call the parent-provided cancel callback if exists and wait for it to resolve
@@ -21,9 +22,12 @@ function EditProfileModal({ open, onCancel, onSubmit, currentProfile }: EditProf
   const handleSubmit = useCallback(
     async (values: Profile) => {
       try {
+        setSubmitting(true); // Set the loading state to true to prevent duplicate submissions
         await onSubmit(values); // Pass the form values to the parent-provided submit callback
       } catch (errorInfo) {
         message.error('Please make sure all fields are correct'); // Display error message if form validation fails
+      } finally {
+        setSubmitting(false); // Reset the loading state after submission
       }
     },
     [onSubmit],
@@ -39,7 +43,12 @@ function EditProfileModal({ open, onCancel, onSubmit, currentProfile }: EditProf
           Cancel
         </Button>,
       ]}>
-      <ProfileForm initialValues={{ ...currentProfile }} onSubmit={handleSubmit} submitButtonText="Save Changes" />
+      <ProfileForm
+        initialValues={{ ...currentProfile }}
+        onSubmit={handleSubmit}
+        submitButtonText="Save Changes"
+        submitting={submitting}
+      />
     </Modal>
   );
 }
