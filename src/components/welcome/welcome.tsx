@@ -35,7 +35,7 @@ function Welcome({ onCreateProfile }: WelcomeProps): JSX.Element {
   );
 
   return (
-    <ProfileCard title="Welcome to Booklet Profile!">
+    <ProfileCard title="Welcome to Blocklet Profile!">
       <Text>It looks like you haven’t created a profile yet. Fill out the form below to get started.</Text>
       <div style={{ marginTop: 20 }}>
         <ProfileForm onSubmit={handleFinish} submitting={submitting} />

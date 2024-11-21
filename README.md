@@ -1,3 +1,26 @@
+# Blocklet Profile App
+
+Profile app based on Blocklet.
+
+## Highlights
+
+- **Profile Management**: Manage your profile information.
+- **Responsive Design**: Support mobile, tablet, and desktop.
+- **Unit Test**: Unit test for backend APIs.
+- **Welcome Page**: A welcome page for new users.
+- **Reusable Components and Hooks**: Reusable components and hooks for better code quality.
+
+## Run tests
+
+```bash
+npm run test
+```
+
+## FQA
+
+1. Q: Why there are no tests for the frontend?
+   A: I tried adding tests using `testing-library/react` for the home page, but Jest failed to run them because of parsing errors. I didn't have time to fix it. _TODO_: Fix the jest settings or migrate to Vitest.
+
 # Getting Started with Create Blocklet
 
 This project was bootstrapped with [Create Blocklet](https://github.com/blocklet/create-blocklet).
@@ -38,7 +61,7 @@ This blocklet is a dapp project, which means this is a full-stack application. I
 
    Blocklet needs blocklet server as a dependency. So you need to install it first.
    `npm install -g @blocklet/cli`
-   See details in [ https://www.arcblock.io/docs/blocklet-developer/install-blocklet-cli#start-blocklet-server]( https://www.arcblock.io/docs/blocklet-developer/install-blocklet-cli#start-blocklet-server)
+   See details in [ https://www.arcblock.io/docs/blocklet-developer/install-blocklet-cli#start-blocklet-server](https://www.arcblock.io/docs/blocklet-developer/install-blocklet-cli#start-blocklet-server)
 
 2. Init blocklet server & start blocklet server
 
@@ -46,7 +69,7 @@ This blocklet is a dapp project, which means this is a full-stack application. I
    `blocklet server init`
    `blocklet server start`
    See details in [https://www.arcblock.io/docs/blocklet-developer/install-blocklet-cli#start-blocklet-server](https://www.arcblock.io/docs/blocklet-developer/install-blocklet-cli#start-blocklet-server)
-   
+
 3. Go to the project directory `cd [name]`
 4. Install dependencies: `npm install` or `yarn`
 5. Start development server: `blocklet dev`
