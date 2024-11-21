@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 
 import EditProfileModal from '../components/edit-profile-modal/edit-profile-modal';
 import { Profile as ProfileComp } from '../components/profile/profile';
+import Welcome from '../components/welcome/welcome';
 import useProfile from '../hooks/use-profile';
 import { Profile } from '../types/profile';
 import './home.css';
@@ -43,8 +44,10 @@ function Home() {
     return <p>Error: {error.message}, please refresh the page to try again or contact the Administrator.</p>;
   }
 
-  if (!profile) {
-    return <p>No profile data</p>;
+  // if (!profile) {
+  if (true) {
+    // profile is not ready, render welcome component for profile creation
+    return <Welcome onCreateProfile={() => {}} />;
   }
 
   // profile is ready, render profile and edit button
