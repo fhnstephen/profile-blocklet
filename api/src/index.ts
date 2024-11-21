@@ -4,20 +4,14 @@ import cors from 'cors';
 import dotenv from 'dotenv-flow';
 import express, { ErrorRequestHandler } from 'express';
 import 'express-async-errors';
+import { Server } from 'http';
 import path from 'path';
 
 import { syncDatabase } from './libs/db';
 import logger from './libs/logger';
 import routes from './routes';
 
-// Initialize the database
-syncDatabase();
-
-dotenv.config();
-
-const { name, version } = require('../../package.json');
-
-// needed for blocklet dev client
+// needed for blocklet dev client and unit tests
 export const app = express();
 
 app.set('trust proxy', true);
@@ -48,10 +42,23 @@ if (isProduction) {
     res.status(500).send('Something broke!');
   }));
 }
+const { name, version } = require('../../package.json');
 
-const port = parseInt(process.env.BLOCKLET_PORT!, 10);
+export function startServer(): Server {
+  // Initialize the database
+  syncDatabase();
 
-export const server = app.listen(port, (err?: any) => {
-  if (err) throw err;
-  logger.info(`> ${name} v${version} ready on ${port}`);
-});
+  dotenv.config();
+
+  const port = parseInt(process.env.BLOCKLET_PORT!, 10);
+
+  return app.listen(port, (err?: any) => {
+    if (err) throw err;
+    logger.info(`> ${name} v${version} ready on ${port}`);
+  });
+}
+
+const server = process.env.NODE_ENV !== 'test' ? startServer() : null;
+
+// needed for blocklet dev client
+export { server };
