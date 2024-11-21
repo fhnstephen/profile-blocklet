@@ -1,4 +1,4 @@
-import { Button, message } from 'antd';
+import { Button, Spin, message } from 'antd';
 import { useCallback, useEffect, useState } from 'react';
 
 import EditProfileModal from '../components/edit-profile-modal/edit-profile-modal';
@@ -58,7 +58,7 @@ function Home() {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Spin />}
       {error && <p>Error: {error.message}</p>}
       {!profile && !isLoading && !error && <p>No profile data</p>}
       {profile && (

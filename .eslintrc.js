@@ -1,6 +1,7 @@
 const { join } = require('path');
 
 module.exports = {
+  parser: '@typescript-eslint/parser',
   root: true,
   extends: '@arcblock/eslint-config-ts',
   parserOptions: {
@@ -8,5 +9,6 @@ module.exports = {
   },
   rules: {
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    '@typescript-eslint/indent': 'off', // broken rule, conflicts with prettier
   },
 };

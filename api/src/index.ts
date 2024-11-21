@@ -1,20 +1,23 @@
-import 'express-async-errors';
-
-import path from 'path';
-
+import fallback from '@blocklet/sdk/lib/middlewares/fallback';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv-flow';
 import express, { ErrorRequestHandler } from 'express';
-import fallback from '@blocklet/sdk/lib/middlewares/fallback';
+import 'express-async-errors';
+import path from 'path';
 
+import { syncDatabase } from './libs/db';
 import logger from './libs/logger';
 import routes from './routes';
+
+// Initialize the database
+syncDatabase();
 
 dotenv.config();
 
 const { name, version } = require('../../package.json');
 
+// needed for blocklet dev client
 export const app = express();
 
 app.set('trust proxy', true);
@@ -24,7 +27,12 @@ app.use(express.urlencoded({ extended: true, limit: '1 mb' }));
 app.use(cors());
 
 const router = express.Router();
-router.use('/api', routes);
+router.use('/v1/api', routes);
+
+// versioning health check
+router.use('/v1', (_, res) => {
+  res.json({ version: 'v1', status: 'running' });
+});
 app.use(router);
 
 const isProduction = process.env.NODE_ENV === 'production' || process.env.ABT_NODE_SERVICE_ENV === 'production';
