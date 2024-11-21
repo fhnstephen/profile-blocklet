@@ -64,7 +64,7 @@ function Home() {
       {profile && (
         <>
           <ProfileComp profile={profile} />
-          <Button type="primary" onClick={handleEdit}>
+          <Button type="primary" onClick={handleEdit} style={{ marginTop: 16 }}>
             Edit your profile
           </Button>
           <EditProfileModal

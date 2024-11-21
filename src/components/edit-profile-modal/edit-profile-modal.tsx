@@ -85,7 +85,10 @@ function EditProfileModal({ open, onCancel, onSubmit, currentProfile }: EditProf
         <Form.Item
           name="phone"
           label="Phone"
-          rules={[{ required: true, message: 'Please enter your phone number' }]} // Required validation
+          rules={[
+            { required: true, message: 'Please enter your phone number' },
+            { pattern: /^\d+$/, message: 'Please enter a valid phone number' },
+          ]} // Required validation
         >
           <Input placeholder="Enter your phone number" />
         </Form.Item>

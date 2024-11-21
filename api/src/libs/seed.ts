@@ -15,7 +15,7 @@ export default async function seedDatabase() {
     }
 
     // Insert seed data
-    await Profile.create({ name: 'HelloBlocklet', email: 'alice@example.com', phone: '123-456-7890' });
+    await Profile.create({ name: 'HelloBlocklet', email: 'alice@example.com', phone: '1234567890' });
     logger.log('Database seeded with initial profiles.');
   } catch (err) {
     logger.error('Failed to seed database:', err);
