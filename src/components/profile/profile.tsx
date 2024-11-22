@@ -1,4 +1,4 @@
-import { Typography } from 'antd';
+import { Tooltip, Typography } from 'antd';
 
 import { Profile as ProfileType } from '../../types/profile';
 import ProfileCard from '../profile-card/profile-card';
@@ -20,11 +20,21 @@ export function Profile(props: ProfileProps): JSX.Element {
     <ProfileCard title={title}>
       <div style={{ textAlign: 'center', padding: '16px 0' }}>
         <Text>
-          <strong>Name:</strong> {name}
+          <strong>Name:</strong>{' '}
+          <Tooltip title={name}>
+            <Text ellipsis style={{ maxWidth: 150, display: 'inline-block' }}>
+              {name}
+            </Text>
+          </Tooltip>
         </Text>
         <br />
         <Text>
-          <strong>Email:</strong> {email}
+          <strong>Email:</strong>{' '}
+          <Tooltip title={email}>
+            <Text ellipsis style={{ maxWidth: 150, display: 'inline-block' }}>
+              {email}
+            </Text>
+          </Tooltip>
         </Text>
         <br />
         <Text>

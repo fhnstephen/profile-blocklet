@@ -50,8 +50,15 @@ function ProfileForm({
   return (
     <Form form={form} layout="vertical" initialValues={initialValues} onFinish={handleFinish}>
       {/* Name Field */}
-      <Form.Item name="name" label="Name" rules={[{ required: true, message: 'Please enter your name' }]}>
-        <Input placeholder="Enter your name" />
+      <Form.Item
+        name="name"
+        label="Name"
+        rules={[
+          { required: true, message: 'Please enter your name' },
+          { min: 3, message: 'Name must be at least 3 characters long' },
+          { max: 32, message: 'Name must not exceed 32 characters' },
+        ]}>
+        <Input placeholder="Enter your name" maxLength={32} />
       </Form.Item>
 
       {/* Email Field */}
@@ -61,8 +68,9 @@ function ProfileForm({
         rules={[
           { required: true, message: 'Please enter your email' },
           { type: 'email', message: 'Please enter a valid email' },
+          { max: 50, message: 'Email must not exceed 50 characters' },
         ]}>
-        <Input placeholder="Enter your email" />
+        <Input placeholder="Enter your email" maxLength={50} />
       </Form.Item>
 
       {/* Phone Field */}
