@@ -1,0 +1,412 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Home Component > renders EditProfileModal when editing is enabled 1`] = `
+<div>
+  <h2
+    class="ant-typography css-dev-only-do-not-override-1x0dypw"
+  >
+    Hello, 
+    John Doe
+  </h2>
+  <div
+    class="ant-card ant-card-bordered css-dev-only-do-not-override-1x0dypw"
+    style="max-width: 500px; margin: 50px auto; padding: 20px; border-radius: 8px;"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          <h4
+            class="ant-typography css-dev-only-do-not-override-1x0dypw"
+          >
+            Your Profile Card
+          </h4>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <div
+        style="text-align: center; padding: 16px 0px;"
+      >
+        <span
+          class="ant-typography css-dev-only-do-not-override-1x0dypw"
+        >
+          <strong>
+            Name:
+          </strong>
+           
+          <span
+            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-dev-only-do-not-override-1x0dypw"
+            style="max-width: 150px; display: inline-block;"
+          >
+            John Doe
+          </span>
+        </span>
+        <br />
+        <span
+          class="ant-typography css-dev-only-do-not-override-1x0dypw"
+        >
+          <strong>
+            Email:
+          </strong>
+           
+          <span
+            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-dev-only-do-not-override-1x0dypw"
+            style="max-width: 150px; display: inline-block;"
+          >
+            john@example.com
+          </span>
+        </span>
+        <br />
+        <span
+          class="ant-typography css-dev-only-do-not-override-1x0dypw"
+        >
+          <strong>
+            Phone:
+          </strong>
+           
+          123-456-7890
+        </span>
+      </div>
+    </div>
+  </div>
+  <button
+    class="ant-btn css-dev-only-do-not-override-1x0dypw ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    style="margin-top: 16px;"
+    type="button"
+  >
+    <span>
+      Edit your profile
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Home Component > renders Welcome component when no profile exists 1`] = `
+<div>
+  <div
+    class="ant-card ant-card-bordered css-dev-only-do-not-override-1x0dypw"
+    style="max-width: 500px; margin: 50px auto; padding: 20px; border-radius: 8px;"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          <h4
+            class="ant-typography css-dev-only-do-not-override-1x0dypw"
+          >
+            Welcome to Blocklet Profile!
+          </h4>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <span
+        class="ant-typography css-dev-only-do-not-override-1x0dypw"
+      >
+        It looks like you haven’t created a profile yet. Fill out the form below to get started.
+      </span>
+      <div
+        style="margin-top: 20px;"
+      >
+        <form
+          class="ant-form ant-form-vertical css-dev-only-do-not-override-1x0dypw"
+        >
+          <div
+            class="ant-form-item css-dev-only-do-not-override-1x0dypw"
+          >
+            <div
+              class="ant-row ant-form-item-row css-dev-only-do-not-override-1x0dypw"
+            >
+              <div
+                class="ant-col ant-form-item-label css-dev-only-do-not-override-1x0dypw"
+              >
+                <label
+                  class="ant-form-item-required"
+                  for="name"
+                  title="Name"
+                >
+                  Name
+                </label>
+              </div>
+              <div
+                class="ant-col ant-form-item-control css-dev-only-do-not-override-1x0dypw"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <input
+                      aria-required="true"
+                      class="ant-input css-dev-only-do-not-override-1x0dypw ant-input-outlined"
+                      id="name"
+                      maxlength="32"
+                      placeholder="Enter your name"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-form-item css-dev-only-do-not-override-1x0dypw"
+          >
+            <div
+              class="ant-row ant-form-item-row css-dev-only-do-not-override-1x0dypw"
+            >
+              <div
+                class="ant-col ant-form-item-label css-dev-only-do-not-override-1x0dypw"
+              >
+                <label
+                  class="ant-form-item-required"
+                  for="email"
+                  title="Email"
+                >
+                  Email
+                </label>
+              </div>
+              <div
+                class="ant-col ant-form-item-control css-dev-only-do-not-override-1x0dypw"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <input
+                      aria-required="true"
+                      class="ant-input css-dev-only-do-not-override-1x0dypw ant-input-outlined"
+                      id="email"
+                      maxlength="50"
+                      placeholder="Enter your email"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-form-item css-dev-only-do-not-override-1x0dypw"
+          >
+            <div
+              class="ant-row ant-form-item-row css-dev-only-do-not-override-1x0dypw"
+            >
+              <div
+                class="ant-col ant-form-item-label css-dev-only-do-not-override-1x0dypw"
+              >
+                <label
+                  class="ant-form-item-required"
+                  for="phone"
+                  title="Phone"
+                >
+                  Phone
+                </label>
+              </div>
+              <div
+                class="ant-col ant-form-item-control css-dev-only-do-not-override-1x0dypw"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <input
+                      aria-required="true"
+                      class="ant-input css-dev-only-do-not-override-1x0dypw ant-input-outlined"
+                      id="phone"
+                      placeholder="Enter your phone number"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-form-item css-dev-only-do-not-override-1x0dypw"
+          >
+            <div
+              class="ant-row ant-form-item-row css-dev-only-do-not-override-1x0dypw"
+            >
+              <div
+                class="ant-col ant-form-item-control css-dev-only-do-not-override-1x0dypw"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <button
+                      class="ant-btn css-dev-only-do-not-override-1x0dypw ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-block"
+                      disabled=""
+                      type="submit"
+                    >
+                      <span>
+                        Submit
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Home Component > renders error state with no profile 1`] = `
+<div>
+  <p>
+    Error: 
+    Something went wrong
+    , please refresh the page to try again or contact the Administrator.
+  </p>
+</div>
+`;
+
+exports[`Home Component > renders loading state 1`] = `
+<div>
+  <div
+    aria-busy="true"
+    aria-live="polite"
+    class="ant-spin ant-spin-spinning css-dev-only-do-not-override-1x0dypw"
+  >
+    <span
+      class="ant-spin-dot-holder"
+    >
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Home Component > renders profile and edit button when profile exists 1`] = `
+<div>
+  <h2
+    class="ant-typography css-dev-only-do-not-override-1x0dypw"
+  >
+    Hello, 
+    John Doe
+  </h2>
+  <div
+    class="ant-card ant-card-bordered css-dev-only-do-not-override-1x0dypw"
+    style="max-width: 500px; margin: 50px auto; padding: 20px; border-radius: 8px;"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          <h4
+            class="ant-typography css-dev-only-do-not-override-1x0dypw"
+          >
+            Your Profile Card
+          </h4>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <div
+        style="text-align: center; padding: 16px 0px;"
+      >
+        <span
+          class="ant-typography css-dev-only-do-not-override-1x0dypw"
+        >
+          <strong>
+            Name:
+          </strong>
+           
+          <span
+            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-dev-only-do-not-override-1x0dypw"
+            style="max-width: 150px; display: inline-block;"
+          >
+            John Doe
+          </span>
+        </span>
+        <br />
+        <span
+          class="ant-typography css-dev-only-do-not-override-1x0dypw"
+        >
+          <strong>
+            Email:
+          </strong>
+           
+          <span
+            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-dev-only-do-not-override-1x0dypw"
+            style="max-width: 150px; display: inline-block;"
+          >
+            john@example.com
+          </span>
+        </span>
+        <br />
+        <span
+          class="ant-typography css-dev-only-do-not-override-1x0dypw"
+        >
+          <strong>
+            Phone:
+          </strong>
+           
+          123-456-7890
+        </span>
+      </div>
+    </div>
+  </div>
+  <button
+    class="ant-btn css-dev-only-do-not-override-1x0dypw ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    style="margin-top: 16px;"
+    type="button"
+  >
+    <span>
+      Edit your profile
+    </span>
+  </button>
+</div>
+`;

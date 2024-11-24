@@ -6,7 +6,7 @@ Profile app based on Blocklet.
 
 - **Profile Management**: Manage your profile information.
 - **Responsive Design**: Support mobile, tablet, and desktop.
-- **Unit Test**: Unit test for backend APIs.
+- **Unit Test**: Basic unit testing for both frontend and backend APIs.
 - **Welcome Page**: A welcome page for new users.
 - **Reusable Components and Hooks**: Reusable components and hooks for better code quality.
 
@@ -15,11 +15,6 @@ Profile app based on Blocklet.
 ```bash
 npm run test
 ```
-
-## FQA
-
-1. Q: Why there are no tests for the frontend?
-   A: I tried adding tests using `testing-library/react` for the home page, but Jest failed to run them because of parsing errors. I didn't have time to fix it. _TODO_: Fix the jest settings or migrate to Vitest.
 
 # Getting Started with Create Blocklet
 
