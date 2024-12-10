@@ -1,6 +1,6 @@
 import { PhoneOutlined } from '@ant-design/icons';
 import { Button, Col, Row, Typography } from 'antd';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 import { DialButton } from '../components/dial-button';
 import './home.css';
@@ -20,32 +20,31 @@ function cutTextIfTooLong(text: string, trimLength = 15): string {
   return `...${text.substring(start, start + trimLength)}`;
 }
 
+const dialButtons = [
+  createDialButtonConfig(1),
+  createDialButtonConfig(2, 'ABC'),
+  createDialButtonConfig(3, 'DEF'),
+  createDialButtonConfig(4, 'GHI'),
+  createDialButtonConfig(5, 'JKL'),
+  createDialButtonConfig(6, 'MNO'),
+  createDialButtonConfig(7, 'PQRS'),
+  createDialButtonConfig(8, 'TUV'),
+  createDialButtonConfig(9, 'WXYZ'),
+  createDialButtonConfig('*'),
+  createDialButtonConfig(0, '+'),
+  createDialButtonConfig('#'),
+];
+
 const repeatInterval = 500; // ms
 
 function Home() {
-  const dialButtons = useMemo(
-    () => [
-      createDialButtonConfig(1),
-      createDialButtonConfig(2, 'ABC'),
-      createDialButtonConfig(3, 'DEF'),
-      createDialButtonConfig(4, 'GHI'),
-      createDialButtonConfig(5, 'JKL'),
-      createDialButtonConfig(6, 'MNO'),
-      createDialButtonConfig(7, 'PQRS'),
-      createDialButtonConfig(8, 'TUV'),
-      createDialButtonConfig(9, 'WXYZ'),
-      createDialButtonConfig('*'),
-      createDialButtonConfig(0, '+'),
-      createDialButtonConfig('#'),
-    ],
-    [],
-  );
   const [text, setText] = useState('');
   const currentKeyRef = useRef<string[] | null>(null);
   const currentKeyRemoveTimeoutRef = useRef<any>(null);
   const onDeleteClick = useCallback(() => {
     setText((preText) => preText.substring(0, preText.length - 1));
     // delete triggered key if any
+    clearTimeout(currentKeyRemoveTimeoutRef.current);
     currentKeyRef.current = null;
   }, []);
 
