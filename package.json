@@ -43,6 +43,7 @@
     ]
   },
   "dependencies": {
+    "@ant-design/icons": "^5.5.2",
     "@arcblock/did-auth": "^1.18.139",
     "@arcblock/did-auth-storage-nedb": "^1.7.1",
     "@blocklet/sdk": "^1.16.32",
